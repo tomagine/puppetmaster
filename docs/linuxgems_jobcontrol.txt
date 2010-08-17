@@ -1,0 +1,32 @@
+################################################################################
+#
+# Linux Gems: Job Control
+#
+################################################################################
+
+Command    Explanation 	                Example
+
+jobs       list jobs
+
+& 	   execute in background 	long_cmd &
+Ctrl-z 	   stop the foreground job 	Ctrl-z
+
+
+bg [%nr]   resume job in background      bg %1 
+fg [%nr]   bring job to foreground       fg %2
+ 	        
+kill %nr   kill job                      kill %1
+
+
+--------------------------------------------------------------------------------
+misc sugar examples
+--------------------------------------------------------------------------------
+(*) fg %?less   
+    brings job to foreground which contains string 'less'
+
+(*) '[Ctrl-z] bg [Enter]' 
+    fast key sequence to send active foreground job to the background
+
+
+###############################################################################
+# infos taken from http://kb.iu.edu/data/afnw.html
