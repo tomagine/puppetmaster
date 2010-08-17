@@ -28,12 +28,11 @@ Actually I use a Fedora 13 (livecd) setup, because this distribution can
 find and install git and puppet-server automatically without any changes to 
 default setup (yum repositories).
 
-A 3-liner after installation does the job (fetch packages git and puppet-server)
+A 2-liner after installation does the job (fetch packages git, wget and puppet-server)
 
 # become root
 su -
-yum -y install git
-yum -y install puppet-server
+yum -y install git wget puppet-server
 
 .... UNDER CONSTRUCTION ....
 
