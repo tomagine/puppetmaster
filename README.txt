@@ -35,5 +35,28 @@ required setup (an installed puppet-server package):
 # execute as root
 yum -y install git wget puppet-server
 
-
+----------------------------------------------------------
 .... UNDER CONSTRUCTION ....
+----------------------------------------------------------
+
+CPU type goodies:
+
+grep "vmx" /proc/cpuinfo   ... if output is non-empty -> CPU supports Intel-VT 
+grep "svm" /proc/cpuinfo   ... if output is non-empty -> CPU supports AMD-V
+grep " lm " /proc/cpuinfo  ... if output is non-empty -> CPU supports 64-bit
+
+
+KSM (Kernel Same Page Merging) goodies:
+
+grep KSM /boot/config-`uname -r`  ... if output is 'CONFIG_KSM=y' -> KSM is supported
+cat /sys/kernel/mm/ksm/run        ... checks if KSM is active (output==0|1)
+echo 1 > /sys/kernel/mm/ksm/run   ... turns on KSM
+echo 2 > /sys/kernel/mm/ksm/run   ... turns off KSM
+
+(*) put the 'echo 1>/sys/kernel/mm/ksm/run' in /etc/rc.local to keep the setting after reboot
+
+KVM installation:
+
+# as root:
+yum install qemu-kvm qemu-kvm-extras
+
